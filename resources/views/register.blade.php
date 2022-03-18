@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="register.css">
+    <title>Register Here</title>
+</head>
+
+<body>
+<form action="{{ route('registerUser') }}" method="post">
+    @if(Session::get('fail'))
+        <div class="alert alert-danger">
+            {{ Session::get('fail') }}
+
+        </div>
+    @endif
+
+    @csrf
+    <div class="register-box">
+        <h1>Register</h1>
+
+        <div class="textbox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" placeholder="Name"
+                   name="name" value="">
+        </div>
+        <div class="textbox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" placeholder="Email"
+                   name="email" value="">
+        </div>
+        <div class="textbox">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <input type="tel" placeholder="Phone"
+                   name="phone" value="">
+        </div>
+        <div class="textbox">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" placeholder="Password"
+                   name="password" value="">
+        </div>
+        <div class="textbox">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="file" placeholder="Upload your Image"
+                   name="photo" value="">
+        </div>
+
+        <button class="button" type="submit">
+               Register Yourself</button>
+    </div>
+</form>
+</body>
+
+</html>
